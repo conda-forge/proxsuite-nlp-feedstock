@@ -5,7 +5,7 @@ channel_targets:
 cxx_compiler:
 - vs2019
 fmt:
-- '9'
+- '10'
 libboost_devel:
 - '1.82'
 libboost_python_devel:
