@@ -1,5 +1,5 @@
 {% set name = "proxsuite-nlp" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/Simple-Robotics/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0688949450ca0c233795f306383c77bd7dcba9ea008b8099037b2949d1fa8bf8
+  sha256: 5536e04923cac8719bac74751997c6369bf0d09885016cdef90fcfa2a3851a00
 
 build:
-  number: 6
+  number: 0
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
