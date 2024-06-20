@@ -34,6 +34,7 @@ requirements:
     - fmt
     - pinocchio
     - python
+    - llvm-openmp  # [not win]
     - numpy
     - benchmark
     - example-robot-data
@@ -41,6 +42,7 @@ requirements:
     - eigen
     - eigenpy
     - python
+    - llvm-openmp  # [not win]
     - {{ pin_compatible('numpy') }}
     - matplotlib-base
     - typed-argument-parser
