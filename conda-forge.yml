@@ -5,7 +5,6 @@ build_platform:
   linux_ppc64le: linux_64
   osx_arm64: osx_64
 conda_build:
-  # Set to false to avoid openmp detection issue on Windows
   error_overlinking: false
 conda_forge_output_validation: true
 github:
