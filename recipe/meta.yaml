@@ -8,12 +8,9 @@ package:
 source:
   url: https://github.com/Simple-Robotics/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: 58c94ae2965ba70bd436c90774dd660231a20a2be15f0e00c83708f39570aaed
-  patches:
-    # Fix CMake check on fmt version: https://github.com/Simple-Robotics/proxsuite-nlp/pull/97
-    - patches/0001-cmake-Update-minimal-fmt-version.patch
 
 build:
-  number: 5
+  number: 6
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
