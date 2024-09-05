@@ -1,5 +1,5 @@
 {% set name = "proxsuite-nlp" %}
-{% set version = "0.7.0" %}
+{% set version = "0.7.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,10 @@ package:
 
 source:
   url: https://github.com/Simple-Robotics/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 58c94ae2965ba70bd436c90774dd660231a20a2be15f0e00c83708f39570aaed
-  patches:
-    # Fix CMake check on fmt version: https://github.com/Simple-Robotics/proxsuite-nlp/pull/97
-    - patches/0001-cmake-Update-minimal-fmt-version.patch
+  sha256: bc14f82c1a4b3c788b3d54b4a9a1f57182f6d38dab18232b4171ac402d2a5d71
 
 build:
-  number: 5
+  number: 0
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
