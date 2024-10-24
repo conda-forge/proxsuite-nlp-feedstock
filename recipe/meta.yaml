@@ -10,7 +10,7 @@ source:
   sha256: ae04d632dd36fd4a89a33801a24edb906117f2d528b7430d19567232684d9332
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
@@ -42,7 +42,6 @@ requirements:
     - eigen
     - eigenpy
     - python
-    - {{ pin_compatible('numpy') }}
     - matplotlib-base
     - typed-argument-parser
     - tqdm
