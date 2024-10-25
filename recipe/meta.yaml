@@ -10,7 +10,7 @@ source:
   sha256: ae04d632dd36fd4a89a33801a24edb906117f2d528b7430d19567232684d9332
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
@@ -35,18 +35,25 @@ requirements:
     - fmt
     - pinocchio
     - python
-    - numpy
+    # On Windows, Numpy 2.0 don't allow to export the PY_ARRAY_UNIQUE_SYMBOL.
+    # This has been fixed in Numpy 2.1.
+    - numpy >=2.1      # [win and py>=310]
+    # Unfortunatly, Numpy 2.1 is not distributed with Python 3.9.
+    # We are forced to use Numpy 1 in this case.
+    - numpy >=1.19,<2  # [win and py<310]
+    - numpy            # [not win]
     - benchmark
     - example-robot-data
   run:
     - eigen
     - eigenpy
     - python
-    - {{ pin_compatible('numpy') }}
     - matplotlib-base
     - typed-argument-parser
     - tqdm
     - meshcat-python
+    - numpy >=2.1                    # [win and py>=310]
+    - {{ pin_compatible('numpy') }}  # [win and py<310]
 
 test:
   commands:
