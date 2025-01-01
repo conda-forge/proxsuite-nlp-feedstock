@@ -1,0 +1,39 @@
+From b73e2061db214627f5f6f70481d96764e92d6968 Mon Sep 17 00:00:00 2001
+From: Joris Vaillant <joris.vaillant@inria.fr>
+Date: Tue, 31 Dec 2024 17:04:58 +0100
+Subject: [PATCH 1/2] cmake: Don't link against all pinocchio
+
+---
+ CMakeLists.txt          | 2 +-
+ examples/CMakeLists.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7b955f99..aa330fe0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -328,7 +328,7 @@ function(create_library)
+   endif()
+ 
+   if(BUILD_WITH_PINOCCHIO_SUPPORT)
+-    target_link_libraries(${PROJECT_NAME} PUBLIC pinocchio::pinocchio)
++    target_link_libraries(${PROJECT_NAME} PUBLIC pinocchio::pinocchio_default)
+   endif()
+ 
+   target_link_libraries(${PROJECT_NAME} PUBLIC Eigen3::Eigen)
+diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
+index 745e43fe..cf9cdb13 100644
+--- a/examples/CMakeLists.txt
++++ b/examples/CMakeLists.txt
+@@ -26,7 +26,7 @@ if(BUILD_WITH_PINOCCHIO_SUPPORT)
+   add_proxsuite_nlp_example(ur5-ik.cpp)
+   target_link_libraries(
+     ${PROJECT_NAME}-example-ur5-ik
+-    PUBLIC example-robot-data::example-robot-data
++    PUBLIC example-robot-data::example-robot-data pinocchio::pinocchio_parsers
+   )
+ endif()
+ 
+-- 
+2.34.1
+
