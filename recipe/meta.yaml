@@ -9,6 +9,7 @@ source:
   url: https://github.com/Simple-Robotics/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: e5b3b049b12b9093a9ab642e411796209190e54dcda4c8e9933ff4f6e426732a
   patches:
+    # https://github.com/Simple-Robotics/proxsuite-nlp/pull/118
     - patches/0001-cmake-Don-t-link-against-all-pinocchio.patch
 
 build:
