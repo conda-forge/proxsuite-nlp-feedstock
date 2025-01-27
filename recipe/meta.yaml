@@ -1,5 +1,5 @@
 {% set name = "proxsuite-nlp" %}
-{% set version = "0.10.0" %}
+{% set version = "0.10.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,10 @@ package:
 
 source:
   url: https://github.com/Simple-Robotics/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e5b3b049b12b9093a9ab642e411796209190e54dcda4c8e9933ff4f6e426732a
-  patches:
-    # https://github.com/Simple-Robotics/proxsuite-nlp/pull/118
-    - patches/0001-cmake-Don-t-link-against-all-pinocchio.patch
+  sha256: e27bd8e3fb634dd31139118df230d574a1c34e2f1c62495f2eb393c676a8714f
 
 build:
-  number: 3
+  number: 0
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
