@@ -10,7 +10,7 @@ source:
   sha256: 9dcb750377c2b17d0a277ef61ae9fb6b12d466a50215dbcb59b79f0f36c4f2c3
 
 build:
-  number: 3
+  number: 4
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x.x') }}
 
@@ -40,16 +40,11 @@ requirements:
     # We are forced to use Numpy 1 in this case.
     - numpy >=1.19,<2  # [win and py<310]
     - numpy            # [not win]
-    - benchmark
-    - example-robot-data
   run:
     - eigen
     - eigenpy
     - python
     - matplotlib-base
-    - typed-argument-parser
-    - tqdm
-    - meshcat-python
     - numpy >=2.1                    # [win and py>=310]
     - {{ pin_compatible('numpy') }}  # [win and py<310]
 
