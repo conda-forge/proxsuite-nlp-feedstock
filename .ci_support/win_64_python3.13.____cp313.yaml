@@ -5,9 +5,9 @@ channel_sources:
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2019
+- vs2022
 fmt:
-- '11.1'
+- '11.2'
 libboost_devel:
 - '1.86'
 libboost_python_devel:
@@ -22,6 +22,3 @@ python:
 - 3.13.* *_cp313
 target_platform:
 - win-64
-zip_keys:
-- - python
-  - numpy
