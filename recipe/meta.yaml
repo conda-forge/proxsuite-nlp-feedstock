@@ -47,6 +47,7 @@ requirements:
     - eigenpy
     - python
     - matplotlib-base
+    - pinocchio-python
     - numpy >=2.1                    # [win and py>=310]
     - {{ pin_compatible('numpy') }}  # [win and py<310]
 
