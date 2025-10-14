@@ -8,9 +8,11 @@ package:
 source:
   url: https://github.com/Simple-Robotics/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: 9dcb750377c2b17d0a277ef61ae9fb6b12d466a50215dbcb59b79f0f36c4f2c3
+  patches:
+    - patches/0001-bump-fmt-version.patch
 
 build:
-  number: 7
+  number: 8
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x.x') }}
 
@@ -22,6 +24,7 @@ requirements:
     - clang  # [win]
     - ninja  # [win]
     - make  # [not win]
+    - pkg-config
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
@@ -45,6 +48,7 @@ requirements:
     - eigenpy
     - python
     - matplotlib-base
+    - pinocchio-python
     - numpy >=2.1                    # [win and py>=310]
     - {{ pin_compatible('numpy') }}  # [win and py<310]
 
